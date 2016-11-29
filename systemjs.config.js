@@ -7,6 +7,7 @@
   var map = {
     'moment': 'node_modules/moment/moment.js',
     'ng2-bootstrap/ng2-bootstrap': 'node_modules/ng2-bootstrap/bundles/ng2-bootstrap.umd.js',
+    'ng2-select': 'node_modules/ng2-select',
     'app':                        'app', // 'dist',
     '@angular':                   'node_modules/@angular',
     'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
@@ -17,6 +18,10 @@
     'app':                        { main: 'main.js',  defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
     'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
+    'ng2-select': {
+        defaultExtension: 'js',
+        main: 'ng2-select.js'
+    }
   };
   var ngPackageNames = [
     'common',

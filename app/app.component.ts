@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {AlertComponent } from 'ng2-bootstrap/ng2-bootstrap';
 import {NgModel} from '@angular/forms';
+import { SelectComponent } from 'ng2-select';
 
 @Component({
   selector: 'my-app',
@@ -11,7 +12,15 @@ import {NgModel} from '@angular/forms';
       <div style="display:inline-block; min-height:290px;">
         <datepicker [(ngModel)]="dt" [minDate]="minDate" [showWeeks]="true"></datepicker>
       </div>
+      <div>
+        <ng-select
+                [multiple]="true"
+                [items]="filterItems"
+                (data)="setFilterSelection($event)"
+                placeholder="Click or type to filter"></ng-select>
+    </div>
   `,
+  //directives: [SELECT_DIRECTIVES]
 })
 export class AppComponent {
   public dt:Date = new Date();
@@ -29,5 +38,11 @@ export class AppComponent {
 
   public getDate():number {
     return this.dt && this.dt.getTime() || new Date().getTime();
+  }
+  
+  private filterSelection: string[];
+    public filterItems: string[] = ["alpha","beta","gamma"];
+    public setFilterSelection(value: any): void {
+        this.filterSelection = value;
   }
 }
